@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends React.Component {
@@ -16,7 +15,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.generateScores();
+    // this.generateScores();
   }
 
   render() {
@@ -28,12 +27,19 @@ class App extends React.Component {
           <h1>Slot machine app</h1>
         </header>
         <section>
-          <Wheel value={result[0]}/>
-          <Wheel value={result[1]}/>
-          <Wheel value={result[2]}/>
+          <div className="wheelsWrapper">
+            <Wheel value={result[0]}/>
+            <Wheel value={result[1]}/>
+            <Wheel value={result[2]}/>
+          </div>
           <button>Stop</button>
           <button onClick={() => this.onStartGame()}>Start</button>
-          <p>Prize: {this.state.prize}</p>
+          {this.state.result.length > 0 && 
+            <div>
+              <h2>{this.state.prize ? 'Congratulate!' : 'Try again!'}</h2>
+              <h3>Prize: {this.state.prize}</h3>
+            </div>
+          }
         </section>
       </div>
     );
@@ -42,10 +48,9 @@ class App extends React.Component {
   async onStartGame() {
     this.resetGame();
     await this.generateScores();
-    const prize = this.calculatePrize();
 
     this.setState({
-      prize
+      prize: this.calculatePrize()
     })
   }
 
@@ -90,8 +95,8 @@ class App extends React.Component {
 
 function Wheel(props) {
   return (
-    <div>
-      Wheel {props.value || 0}
+    <div className="wheel">
+      {props.value || 0}
     </div>
   )
 }
