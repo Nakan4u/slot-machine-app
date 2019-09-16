@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Slot Machine
+## Slot Machine exercise
 
 ---------------- EXERCISE ----------------
 The slot machine - HTML5/Javascript/ReactJS (ReduxSaga if you think that it will be useful)
@@ -18,4 +18,3 @@ The machine has a stop button. When the user presses it, then the wheels stop.
 If all the wheels show the two or more symbols of the same type, then we have a prize!!!. Two identical non-consecutive symbols, the prize is 10 dollars, Two consecutive symbols, then the prize is 20 dollars. The same symbol in all the wheels, the prize is 100 dollars
  
 Please, come with a reasonable simple design and a solution. It needs to be properly tested. No need of server side. Just HTML5/Javascript
-Please push the code to your Github or Bitbucket repo.
